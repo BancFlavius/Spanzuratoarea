@@ -86,8 +86,7 @@ public class Game {
     }
 
     boolean endGame() {
-        gameOver = false;
-        if (wrongGuesses == 10) gameOver = true;
+        gameOver = wrongGuesses == 10;
         if (playerWin) gameOver = true;
         return gameOver;
     }
@@ -123,7 +122,7 @@ public class Game {
                 }
             }
         } else {
-            findIt = false;
+            playerWin = true;
             for (int i = 0; i < wrongLetters.length(); i++) {
                 if (wrongLetters.charAt(i) == newLetter) {
                     System.out.println("Litera '" + newLetter + "' este deja incorecta.");
@@ -140,7 +139,7 @@ public class Game {
 
     private String replaceCharAt(String str, int index, char replaceChar) {
         if (str == null) {
-            return str;
+            return null;
         } else if (index < 0 || index >= str.length()) {
             return str;
         }
