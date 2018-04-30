@@ -122,7 +122,7 @@ public class Game {
                 }
             }
         } else {
-            playerWin = true;
+            findIt = false;
             for (int i = 0; i < wrongLetters.length(); i++) {
                 if (wrongLetters.charAt(i) == newLetter) {
                     System.out.println("Litera '" + newLetter + "' este deja incorecta.");
@@ -139,7 +139,7 @@ public class Game {
 
     private String replaceCharAt(String str, int index, char replaceChar) {
         if (str == null) {
-            return null;
+            return str;
         } else if (index < 0 || index >= str.length()) {
             return str;
         }
